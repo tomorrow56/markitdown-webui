@@ -22,9 +22,14 @@ A modern web interface for Microsoft's MarkItDown document conversion tool.
 - **Books**: EPUB
 - **Text**: TXT, MD
 
-## Installation
+## Local Installation
 
-1. Clone or download this project
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/tomorrow56/markitdown-webui.git
+   cd markitdown-webui
+   ```
+
 2. Install dependencies:
    ```bash
    pip install -r requirements.txt
@@ -37,12 +42,35 @@ A modern web interface for Microsoft's MarkItDown document conversion tool.
 
 4. Open your browser and navigate to `http://localhost:5001`
 
-## Usage
+## Vercel Deployment
 
-1. **Upload a file**: Drag and drop a file onto the upload area or click "Browse Files"
-2. **Wait for conversion**: The file will be automatically converted to Markdown
-3. **Preview the result**: See a preview of the converted content
-4. **Download**: Click "Download Markdown" to save the converted file
+### Option 1: Using Vercel CLI
+
+1. Install Vercel CLI:
+   ```bash
+   npm i -g vercel
+   ```
+
+2. Deploy to Vercel:
+   ```bash
+   vercel
+   ```
+
+3. Follow the prompts to deploy your application
+
+### Option 2: Using GitHub Integration
+
+1. Push your code to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Vercel will automatically deploy your application
+
+### Deployment Notes
+
+- The application automatically detects Vercel environment
+- Files are stored in `/tmp/uploads` on Vercel (serverless limitation)
+- Maximum file size: 50MB
+- Function timeout: 30 seconds
+- Some large documents may timeout due to Vercel's limitations
 
 ## Configuration
 
@@ -55,7 +83,6 @@ A modern web interface for Microsoft's MarkItDown document conversion tool.
 - Python 3.10 or higher
 - MarkItDown library with all dependencies
 - Flask web framework
-- python-magic for file type detection
 
 ## API Endpoints
 
@@ -80,6 +107,12 @@ The application includes comprehensive error handling for:
 - Automatic cleanup of temporary files
 - File size limits
 - Input sanitization
+
+## Limitations
+
+- **Vercel**: 30-second function timeout may limit large document processing
+- **File Storage**: Temporary files only (serverless limitation)
+- **Memory Usage**: Large files may exceed serverless memory limits
 
 ## License
 

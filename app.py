@@ -6,9 +6,20 @@ from werkzeug.utils import secure_filename
 import uuid
 from datetime import datetime
 
-app = Flask(__name__)
+# Check if running on Vercel
+is_vercel = os.environ.get('VERCEL') == '1'
+
+app = Flask(__name__, 
+           template_folder='templates',
+           static_folder='static')
+
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max file size
-app.config['UPLOAD_FOLDER'] = 'uploads'
+
+# For Vercel, use /tmp directory; for local, use uploads
+if is_vercel:
+    app.config['UPLOAD_FOLDER'] = '/tmp/uploads'
+else:
+    app.config['UPLOAD_FOLDER'] = 'uploads'
 
 # Ensure upload folder exists
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)

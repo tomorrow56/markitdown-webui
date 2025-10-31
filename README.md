@@ -22,7 +22,7 @@ A modern web interface for Microsoft's MarkItDown document conversion tool.
 - **Books**: EPUB
 - **Text**: TXT, MD
 
-## Local Installation
+## Installation
 
 1. Clone the repository:
    ```bash
@@ -42,41 +42,19 @@ A modern web interface for Microsoft's MarkItDown document conversion tool.
 
 4. Open your browser and navigate to `http://localhost:5001`
 
-## Vercel Deployment
+## Usage
 
-### Option 1: Using Vercel CLI
-
-1. Install Vercel CLI:
-   ```bash
-   npm i -g vercel
-   ```
-
-2. Deploy to Vercel:
-   ```bash
-   vercel
-   ```
-
-3. Follow the prompts to deploy your application
-
-### Option 2: Using GitHub Integration
-
-1. Push your code to GitHub
-2. Connect your repository to [Vercel](https://vercel.com)
-3. Vercel will automatically deploy your application
-
-### Deployment Notes
-
-- The application automatically detects Vercel environment
-- Files are stored in `/tmp/uploads` on Vercel (serverless limitation)
-- Maximum file size: 50MB
-- Function timeout: 30 seconds
-- Some large documents may timeout due to Vercel's limitations
+1. **Upload a file**: Drag and drop a file onto the upload area or click "Browse Files"
+2. **Wait for conversion**: The file will be automatically converted to Markdown
+3. **Preview the result**: See a preview of the converted content
+4. **Download**: Click "Download Markdown" to save the converted file
 
 ## Configuration
 
 - **Maximum file size**: 50MB (configurable in `app.py`)
 - **Supported formats**: Defined in `ALLOWED_EXTENSIONS` in `app.py`
 - **Cleanup interval**: Files older than 1 hour are automatically deleted
+- **Port**: Application runs on port 5001
 
 ## Requirements
 
@@ -108,11 +86,21 @@ The application includes comprehensive error handling for:
 - File size limits
 - Input sanitization
 
-## Limitations
+## Troubleshooting
 
-- **Vercel**: 30-second function timeout may limit large document processing
-- **File Storage**: Temporary files only (serverless limitation)
-- **Memory Usage**: Large files may exceed serverless memory limits
+### PDF Conversion Issues
+If you encounter PDF conversion errors:
+1. Ensure all dependencies are installed: `pip install -r requirements.txt`
+2. Try reinstalling MarkItDown: `pip uninstall markitdown -y && pip install 'markitdown[all]'`
+3. Check that pdfminer-six is properly installed
+
+### Port Already in Use
+If port 5001 is already in use:
+```bash
+# Kill existing process
+lsof -ti:5001 | xargs kill -9
+# Or change port in app.py
+```
 
 ## License
 

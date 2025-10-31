@@ -1,0 +1,9 @@
+uploads/
+*.pyc
+__pycache__/
+.git/
+.gitignore
+*.log
+.env
+.venv
+venv/

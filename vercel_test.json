@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "index_minimal.py",
+      "src": "app_test.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "index_minimal.py"
+      "dest": "app_test.py"
     }
   ],
   "env": {

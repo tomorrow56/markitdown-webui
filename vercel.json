@@ -18,10 +18,5 @@
   ],
   "env": {
     "PYTHON_VERSION": "3.10"
-  },
-  "functions": {
-    "index.py": {
-      "maxDuration": 60
-    }
   }
 }

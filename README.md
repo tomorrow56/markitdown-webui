@@ -2,10 +2,16 @@
 
 A modern web interface for Microsoft's MarkItDown document conversion tool.
 
+## 🚀 Live Demo
+
+**https://markitdown-webui-fawn.vercel.app/**
+
 ## Features
 
 - **Drag & Drop Upload**: Intuitive file upload with drag-and-drop support
-- **Multiple Format Support**: Convert PDF, Word, PowerPoint, Excel, Images, Audio, HTML, and more
+- **Document Conversion**: Convert PDF, Word, PowerPoint, Excel files
+- **Web Content**: Convert HTML and web pages to Markdown
+- **Data Formats**: Support for CSV, JSON, XML conversion
 - **Live Preview**: See a preview of your converted Markdown before downloading
 - **Modern UI**: Clean, responsive interface built with Tailwind CSS
 - **Error Handling**: Comprehensive error reporting and validation
@@ -14,12 +20,8 @@ A modern web interface for Microsoft's MarkItDown document conversion tool.
 ## Supported File Formats
 
 - **Documents**: PDF, DOCX, DOC, PPTX, PPT, XLSX, XLS
-- **Images**: JPG, JPEG, PNG, GIF, BMP, TIFF, WebP (with OCR)
-- **Audio**: WAV, MP3 (with transcription)
 - **Web**: HTML, HTM
 - **Data**: CSV, JSON, XML
-- **Archives**: ZIP (iterates over contents)
-- **Books**: EPUB
 - **Text**: TXT, MD
 
 ## Installation

@@ -1,8 +1,6 @@
-from app import app
+from app import app as application
 
 # Vercel serverless function entry point
-def handler(environ, start_response):
-    return app(environ, start_response)
-
-# Export for Vercel
-app.handler = handler
+# @vercel/python expects either 'app' or 'handler' to be exported
+# Using 'app' as the standard name for WSGI applications
+app = application

@@ -26,10 +26,8 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Allowed file extensions
 ALLOWED_EXTENSIONS = {
-    'pdf', 'docx', 'doc', 'pptx', 'ppt', 'xlsx', 'xls', 
-    'jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'webp',
-    'wav', 'mp3', 'html', 'htm', 'csv', 'json', 'xml', 
-    'zip', 'epub', 'txt', 'md'
+    'pdf', 'docx', 'doc', 'pptx', 'ppt', 'xlsx', 'xls',
+    'html', 'htm', 'csv', 'json', 'xml', 'txt', 'md'
 }
 
 def allowed_file(filename):
@@ -46,22 +44,11 @@ def get_file_type(filename):
         'ppt': 'application/vnd.ms-powerpoint',
         'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         'xls': 'application/vnd.ms-excel',
-        'jpg': 'image/jpeg',
-        'jpeg': 'image/jpeg',
-        'png': 'image/png',
-        'gif': 'image/gif',
-        'bmp': 'image/bmp',
-        'tiff': 'image/tiff',
-        'webp': 'image/webp',
-        'wav': 'audio/wav',
-        'mp3': 'audio/mpeg',
         'html': 'text/html',
         'htm': 'text/html',
         'csv': 'text/csv',
         'json': 'application/json',
         'xml': 'application/xml',
-        'zip': 'application/zip',
-        'epub': 'application/epub+zip',
         'txt': 'text/plain',
         'md': 'text/markdown'
     }

@@ -98,3 +98,6 @@ node_modules/
 
 # Serverless directories
 .serverless
+
+# Runtime logs
+logs/
